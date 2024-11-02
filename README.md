@@ -39,7 +39,7 @@ Este proyecto es un gestor de catálogo de productos que permite realizar la ope
     ```
 
 2. Seguir las instrucciones en la terminal:
-    - "alta": Añadir un nuevo producto al catálogo.
+    - "annadir": Añadir un nuevo producto al catálogo.
     - "mostrar": Mostrar todos los productos del catálogo.
     - "salir": Salir de la aplicación.
 
