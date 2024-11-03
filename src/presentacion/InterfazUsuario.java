@@ -10,7 +10,7 @@ public class InterfazUsuario implements Serializable{
         Catalogo catalogo = new Catalogo();
         Scanner sc = new Scanner(System.in);
         while(true){
-            System.out.print("Introduce una instrucción (mostrar, annadir)");
+            System.out.print("Introduce una instrucción (mostrar, annadir, salir)");
         String instruccion = sc.nextLine(); 
         if (instruccion.equalsIgnoreCase("mostrar")) { 
             mostrarCatalogoProductos(catalogo); 
