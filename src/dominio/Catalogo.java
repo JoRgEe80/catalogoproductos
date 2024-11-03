@@ -2,7 +2,7 @@ package dominio;
 import java.io.*;
 import java.util.*;
 public class Catalogo implements Serializable{
-  private final static ArrayList<Producto> catalogoProductos = new ArrayList<>();
+  private final ArrayList<Producto> catalogoProductos = new ArrayList<>();
     
     public Catalogo(){
       cargarProductos();
@@ -40,7 +40,7 @@ public class Catalogo implements Serializable{
             System.out.println("No hay productos registrados");
         }
     }
-    public static void volcarProductos(){
+    public void volcarProductos(){
     try{
         FileWriter fw = new FileWriter("catalogo.csv");
         for(Producto p : catalogoProductos){
