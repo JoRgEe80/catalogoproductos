@@ -4,7 +4,7 @@
 Jorge Sánchez
 
 ## Descripción
-Este proyecto es un gestor de catálogo de productos que permite realizar la operación de alta de productos. El sistema funciona en local con una interfaz de texto, y los datos se almacenan en un archivo CSV para persistencia.
+Este proyecto es un gestor de catálogo de productos que permite realizar la operación de alta, baja, cosulta y modificacion de productos. El sistema funciona en local con una interfaz de texto, y los datos se almacenan en un archivo CSV para persistencia.
 
 ## Requisitos
 - Java 8 o superior
@@ -42,7 +42,7 @@ Este proyecto es un gestor de catálogo de productos que permite realizar la ope
     - "annadir": Añadir un nuevo producto al catálogo.
     - "mostrar": Mostrar todos los productos del catálogo.
     - "modificar": Modificar un producto existente.
-    - "borrr": Borrar un contacto existente.
+    - "borrar": Borrar un contacto existente.
     - "salir": Salir de la aplicación.
 
 ## Estructura del Proyecto
