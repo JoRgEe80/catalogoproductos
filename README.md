@@ -41,6 +41,8 @@ Este proyecto es un gestor de catálogo de productos que permite realizar la ope
 2. Seguir las instrucciones en la terminal:
     - "annadir": Añadir un nuevo producto al catálogo.
     - "mostrar": Mostrar todos los productos del catálogo.
+    - "modificar": Modificar un producto existente.
+    - "borrr": Borrar un contacto existente.
     - "salir": Salir de la aplicación.
 
 ## Estructura del Proyecto
