@@ -2,16 +2,22 @@ package dominio;
 import java.io.*;
 import java.util.*;
 public class Catalogo implements Serializable{
-  private final ArrayList<Producto> catalogoProductos = new ArrayList<>();
+  private ArrayList<Producto> catalogoProductos = new ArrayList<>();
     
     public Catalogo(){
       cargarProductos();
     }
-    public void annadir(Producto p) {
-      catalogoProductos.add(p);
-    volcarProductos();
+    public void annadir(Producto p) throws DuplicadoException{
+      Catalogo catalogo=new Catalogo();
+      catalogoProductos=catalogo.getCatalogoProductos();
+      int posicion = catalogoProductos.indexOf(new Producto(p.getNombre()));
+      if(posicion !=-1){
+        catalogoProductos.add(p);
+        volcarProductos();
+      }else{
+        throw new DuplicadoException();
+      }
     }
-    
     public ArrayList<Producto> getCatalogoProductos() {
         return catalogoProductos;
     }
@@ -50,7 +56,43 @@ public class Catalogo implements Serializable{
     }catch(IOException ex){
         System.err.println(ex);
     }
-}
+    }
+    public Producto buscar(String nombre){
+        Catalogo catalogo = new Catalogo();
+        catalogoProductos= catalogo.getCatalogoProductos();
+        int posicion=catalogoProductos.indexOf(new Producto(nombre));
+        if(posicion==-1){
+            return null;
+        }else{
+            return catalogoProductos.get(posicion);
+        }
+    }
+    public void modificarProducto(String nombre, Double nuevoPrecio, int nuevaCantidad) throws NoEncontradoException{
+        
+        Producto p = buscar(nombre);
+        if (p != null) { 
+            p.setPrecio(nuevoPrecio);
+            p.setCantidad(nuevaCantidad);
+            volcarProductos();
+            
+        }else{
+            throw new NoEncontradoException();
+        }
+    
+    }
+    public void borrar(String nombre) throws NoEncontradoException{
+        Catalogo catalogo=new Catalogo();
+        catalogoProductos=catalogo.getCatalogoProductos();
+        int posicion = catalogoProductos.indexOf(new Producto(nombre));
+        if(posicion !=-1){
+            catalogoProductos.remove(posicion);
+            volcarProductos();
+            System.out.println("Producto borrado correctamente");
+        }else{
+            throw new NoEncontradoException();
+        }
+
+    }
 }
 
 

@@ -10,6 +10,9 @@ public class Producto implements Serializable{
         precio=precio_;
         cantidad=cantidad_;
     }
+    public Producto(String nombre_){
+        nombre=nombre_;
+    }
     public String getNombre(){
         return nombre;
     }
@@ -34,5 +37,9 @@ public class Producto implements Serializable{
                 .append(precio).append("\n").append("Cantidad: ").append(cantidad);
                 return sb.toString();
 
+    }
+    public boolean equals(Object o){
+        Producto p=(Producto) o;
+        return p.nombre.equals(nombre);
     }
 }
