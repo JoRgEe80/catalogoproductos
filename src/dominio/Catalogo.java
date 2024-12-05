@@ -8,10 +8,8 @@ public class Catalogo implements Serializable{
       cargarProductos();
     }
     public void annadir(Producto p) throws DuplicadoException{
-      Catalogo catalogo=new Catalogo();
-      catalogoProductos=catalogo.getCatalogoProductos();
       int posicion = catalogoProductos.indexOf(new Producto(p.getNombre()));
-      if(posicion !=-1){
+      if(posicion ==-1){
         catalogoProductos.add(p);
         volcarProductos();
       }else{
@@ -58,8 +56,6 @@ public class Catalogo implements Serializable{
     }
     }
     public Producto buscar(String nombre){
-        Catalogo catalogo = new Catalogo();
-        catalogoProductos= catalogo.getCatalogoProductos();
         int posicion=catalogoProductos.indexOf(new Producto(nombre));
         if(posicion==-1){
             return null;
@@ -81,8 +77,6 @@ public class Catalogo implements Serializable{
     
     }
     public void borrar(String nombre) throws NoEncontradoException{
-        Catalogo catalogo=new Catalogo();
-        catalogoProductos=catalogo.getCatalogoProductos();
         int posicion = catalogoProductos.indexOf(new Producto(nombre));
         if(posicion !=-1){
             catalogoProductos.remove(posicion);

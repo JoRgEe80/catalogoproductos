@@ -13,11 +13,14 @@ public class InterfazUsuario implements Serializable{
         Catalogo catalogo = new Catalogo();
         Scanner sc = new Scanner(System.in);
         while(true){
-            System.out.print("Introduce una instrucción (consultar, annadir, mofificar, borrar, salir)");
+            System.out.print("Introduce una instrucción ('consultar'(1 producto), 'mostrar'(catalogo), 'annadir', 'mofificar', 'borrar', 'salir')");
         String instruccion = sc.nextLine(); 
         if (instruccion.equalsIgnoreCase("consultar")) { 
             System.out.println("Introduzca el nombre del producto que desea consultar");
             mostrarProducto(sc.nextLine()); 
+        }else if(instruccion.equalsIgnoreCase("mostrar")){
+            mostrarCatalogo(catalogo);
+
         }else if (instruccion.equalsIgnoreCase("annadir")) {
             System.out.println("Introduce: Nombre producto, precio, cantidad");
             try{
@@ -69,5 +72,13 @@ public class InterfazUsuario implements Serializable{
             System.out.println("Nombre: "+p.getNombre()+"\n"+"Precio: "+p.getPrecio()+"\n"+"Cantidad: "+p.getCantidad());
         }
     }
+    private static void mostrarCatalogo(Catalogo catalogo){
+        ArrayList<Producto> productos = catalogo.getCatalogoProductos();
+        for(Producto producto : productos){
+            System.out.println(producto.getNombre() + " " +producto.getPrecio() + " " +producto.getCantidad()+"\n");
+        }
+        System.out.println("El numero total de productos es " + catalogo.calcularTiposProducto());
+    }
+
  
 }
