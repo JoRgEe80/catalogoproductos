@@ -39,6 +39,10 @@ public class Producto implements Serializable{
 
     }
     public boolean equals(Object o){
+        if (o==null)
+        return false;
+        if (this.getClass()!=o.getClass())
+        return false;
         Producto p=(Producto) o;
         return p.nombre.equals(nombre);
     }
